@@ -125,7 +125,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\SDL2Package.1.0.0\build\native\SDL2Package.targets" Condition="Exists('..\packages\SDL2Package.1.0.0\build\native\SDL2Package.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SDL2Package.1.0.0\build\native\SDL2Package.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SDL2Package.1.0.0\build\native\SDL2Package.targets'))" />
+  </Target>
 </Project>
