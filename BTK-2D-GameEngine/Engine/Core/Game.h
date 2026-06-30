@@ -13,7 +13,7 @@ public:
 private:
 	void ProcessInput();
 	void Update(float deltaTime);
-	void Reder();
+	void Render();
 
 private:
 	SDL_Window* m_Window;

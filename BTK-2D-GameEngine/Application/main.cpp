@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
+#include "../Engine/Core/Game.h"
 
 
 int main(int argc, char** argv)
@@ -10,7 +11,7 @@ int main(int argc, char** argv)
 		return -1;
 	}
 
-	Game.Run();
+	game.Run();
 
 	return 0;
 }

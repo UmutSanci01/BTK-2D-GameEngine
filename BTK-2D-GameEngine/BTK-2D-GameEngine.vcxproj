@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application\main.cpp" />
+    <ClCompile Include="Engine\Core\Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
