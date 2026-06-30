@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <iostream>
+#include <SDL2/SDL.h>
 
 Game::Game() {}
 Game::~Game() { Shutdown(); }
@@ -58,6 +59,29 @@ void Game::ProcessInput()
 		if (event.type == SDL_QUIT)
 		{
 			m_isRunning = false;
+		}
+
+		if (event.type == SDL_KEYDOWN)
+		{
+			switch (event.key.keysym.sym)
+			{
+				case SDLK_ESCAPE:
+					m_isRunning = false;
+					break;
+				case SDLK_F11:
+					m_isFullScreen = !m_isFullScreen;
+					if (m_isFullScreen)
+					{
+						SDL_SetWindowFullscreen(m_Window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+					}
+					else
+					{
+						SDL_SetWindowFullscreen(m_Window, 0); // return to windowed screen
+					}
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }

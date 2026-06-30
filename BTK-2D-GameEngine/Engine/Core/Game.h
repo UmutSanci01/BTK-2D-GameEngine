@@ -21,4 +21,6 @@ private:
 	bool m_isRunning = false;
 	int m_WindowWidth = 800;
 	int m_WindowHeight = 600; 
+
+	bool m_isFullScreen = false;
 };
